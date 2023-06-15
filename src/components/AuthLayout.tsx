@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/Logo";
+import { PropsWithChildren } from "react";
 
 function BackgroundIllustration(props: React.SVGAttributes<SVGElement>) {
 	return (
@@ -19,7 +20,14 @@ function BackgroundIllustration(props: React.SVGAttributes<SVGElement>) {
 	);
 }
 
-export function AuthLayout({ title, subtitle, children }) {
+export function AuthLayout({
+	title,
+	subtitle,
+	children,
+}: PropsWithChildren<{
+	title: string;
+	subtitle?: string;
+}>) {
 	return (
 		<main className="flex min-h-full overflow-hidden pt-16 sm:py-28">
 			<div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
