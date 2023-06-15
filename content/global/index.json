@@ -1,0 +1,39 @@
+{
+  "header": {
+    "style": "centered",
+    "nav": [
+      {
+        "href": "#features",
+        "label": "Features"
+      },
+      {
+        "href": "/about",
+        "label": "About"
+      },
+      {
+        "href": "#reviews",
+        "label": "Reviews"
+      },
+      {
+        "href": "#pricing",
+        "label": "Pricing"
+      },
+      {
+        "href": "#faqs",
+        "label": "FAQs"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Log in",
+        "type": "link"
+      },
+      {
+        "label": "Download",
+        "type": "button"
+      }
+    ]
+  },
+  "footer": {},
+  "theme": {}
+}

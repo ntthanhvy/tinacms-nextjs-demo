@@ -1,4 +1,26 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+	// webpack(config) {
+	// 	config.module.rules.push({
+	// 		test: /\.svg$/i,
+	// 		issuer: /\.[jt]sx?$/,
+	// 		use: ["@svgr/webpack"],
+	// 	});
 
-module.exports = nextConfig
+	// 	return config;
+	// },
+	async rewrites() {
+		return [
+			{
+				source: "/",
+				destination: "/home",
+			},
+			{
+				source: "/admin",
+				destination: "/admin/index.html",
+			},
+		];
+	},
+};
+
+module.exports = nextConfig;
