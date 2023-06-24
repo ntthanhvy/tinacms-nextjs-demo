@@ -1,5 +1,11 @@
-import { HTMLAttributes, PropsWithChildren, Ref, forwardRef } from "react";
-import Link from "next/link";
+import {
+	ForwardedRef,
+	HTMLAttributes,
+	PropsWithChildren,
+	Ref,
+	forwardRef,
+} from "react";
+import Link, { LinkProps } from "next/link";
 import clsx from "clsx";
 
 const baseStyles = {
@@ -21,31 +27,42 @@ const variantStyles: { [key: string]: { [key: string]: string } } = {
 	},
 };
 
-export const Button = forwardRef(function Button(
-	{
-		variant = "solid",
-		color = "gray",
-		className,
-		href,
-		...props
-	}: PropsWithChildren<{
-		variant?: "solid" | "outline";
-		color?: "cyan" | "white" | "gray";
-		className?: string;
-		href?: string;
-		type?: "submit" | "reset" | "button";
-	}>,
-	ref: Ref<HTMLButtonElement | HTMLAnchorElement> | undefined
-) {
-	className = clsx(
-		baseStyles[variant],
-		variantStyles[variant][color],
-		className
-	);
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement>(
+	function Button(
+		{
+			variant = "solid",
+			color = "gray",
+			className,
+			href,
+			...props
+		}: PropsWithChildren<{
+			variant?: "solid" | "outline";
+			color?: "cyan" | "white" | "gray";
+			className?: string;
+			href?: string;
+			type?: "submit" | "reset" | "button";
+		}>,
+		ref
+	) {
+		className = clsx(
+			baseStyles[variant],
+			variantStyles[variant][color],
+			className
+		);
 
-	return href ? (
-		<Link ref={ref} href={href} className={className} {...props} />
-	) : (
-		<button ref={ref} className={className} {...props} />
-	);
-});
+		return href ? (
+			<Link
+				ref={ref as ForwardedRef<HTMLAnchorElement>}
+				href={href}
+				className={className}
+				{...props}
+			/>
+		) : (
+			<button
+				ref={ref as ForwardedRef<HTMLButtonElement>}
+				className={className}
+				{...props}
+			/>
+		);
+	}
+);

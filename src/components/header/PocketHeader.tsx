@@ -15,6 +15,7 @@ import {
 } from "../../../tina/__generated__/types";
 import clsx from "clsx";
 import { tinaField } from "tinacms/dist/react";
+import Image from "next/image";
 
 function MenuIcon(props: React.SVGAttributes<SVGElement>) {
 	return (
@@ -63,6 +64,8 @@ export function PocketHeader({ data }: { data: GlobalHeader }) {
 		"mx-auto max-w-7xl "
 	);
 
+	console.log({ data });
+
 	return (
 		<header>
 			<nav className={className}>
@@ -73,7 +76,21 @@ export function PocketHeader({ data }: { data: GlobalHeader }) {
 					})}
 				>
 					<Link href="/" aria-label="Home">
-						<Logo className="h-10 w-auto" />
+						{data.logo ? (
+							<span className="inline-flex gap-5">
+								<Image
+									src={data.logo}
+									alt={data.siteName ?? "logo"}
+									width={120}
+									height={50}
+								/>
+								{data.siteName ? (
+									<span className="font-medium">{data.siteName}</span>
+								) : null}
+							</span>
+						) : (
+							<Logo className="h-10 w-auto" />
+						)}
 					</Link>
 				</div>
 				<div

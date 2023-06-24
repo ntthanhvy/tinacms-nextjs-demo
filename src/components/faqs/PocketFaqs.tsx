@@ -58,8 +58,15 @@ const defaultFaqs = [
 	],
 ];
 
+function createGroups<T>(arr: T[], numGroups: number): T[][] {
+	const perGroup = Math.ceil(arr.length / numGroups);
+	return new Array(numGroups)
+		.fill("")
+		.map((_, i) => arr.slice(i * perGroup, (i + 1) * perGroup));
+}
+
 export function PocketFaqs({ data }: { data: PageBlocksFaqs }) {
-	const fags = data.questions ? data.questions.slice(3) : defaultFaqs;
+	const fags = data.questions ? createGroups(data.questions, 3) : defaultFaqs;
 
 	console.log({ fags });
 
@@ -109,9 +116,11 @@ export function PocketFaqs({ data }: { data: PageBlocksFaqs }) {
 									column.map((faq, faqIndex) => (
 										<li key={faqIndex}>
 											<h3 className="text-lg font-semibold leading-6 text-gray-900">
-												{faq.question}
+												{faq?.question}
 											</h3>
-											<p className="mt-4 text-sm text-gray-700">{faq.answer}</p>
+											<p className="mt-4 text-sm text-gray-700">
+												{faq?.answer}
+											</p>
 										</li>
 									))}
 							</ul>

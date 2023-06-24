@@ -1,3 +1,4 @@
+import { defaultHeaderFields } from "../src/components/blocks/header";
 import {
 	callToActionTemplate,
 	contentTemplate,
@@ -79,6 +80,16 @@ export default defineConfig({
 						fields: [
 							{
 								type: "string",
+								label: "Site name",
+								name: "siteName",
+							},
+							{
+								type: "image",
+								label: "Logo",
+								name: "logo",
+							},
+							{
+								type: "string",
 								label: "Styles",
 								name: "style",
 								options: [
@@ -87,14 +98,13 @@ export default defineConfig({
 									{ label: "Righted", value: "righted" },
 								],
 							},
-							templateList as any,
 							{
 								type: "object",
 								label: "Nav Link",
 								name: "nav",
 								list: true,
 								ui: {
-									itemProps: (item) => ({ label: item?.label }),
+									itemProps: (item: any) => ({ label: item?.label }),
 									defaultItem: {
 										href: "#",
 										label: "Products",

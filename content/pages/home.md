@@ -6,7 +6,9 @@ description: >-
   exactly when to buy to maximize profit, and exactly when to sell to avoid
   painful losses.
 blocks:
-  - template: salient
+  - title: this is content
+    _template: content
+  - template: pocket
     headline: Invest at the perfect time.
     text: >
       By leveraging insights from our network of industry insiders, you’ll know
@@ -14,7 +16,7 @@ blocks:
       painful.
     actions:
       - label: AppStore link
-        type: button
+        type: appstore
         icon: true
         link: /
       - label: Demo video
@@ -22,12 +24,15 @@ blocks:
         icon: true
         link: /
     _template: hero
-  - template: salient
+  - template: pocket
     headline: Every feature you need to win. Try it for yourself.
     text: >
       Pocket was built for investors like you who play by their own rules and
       aren’t going to let SEC regulations get in the way of their           
       dreams. If other investing tools are afraid to build it, Pocket has it.
+    features:
+      - title: This is feature 1
+        text: Description in feature 1 is thos logn
     _template: primaryFeature
   - template: salient
     headline: Now is the time to build your portfolio.
@@ -35,7 +40,7 @@ blocks:
       With typical market returns, you have to start young to secure your
       future. With Pocket, it’s never too late to build your nest egg.
     _template: secondaryFeature
-  - template: salient
+  - template: pocket
     headline: Get your first tips today
     text: >
       It takes 30 seconds to sign up. Download the app and create an account
@@ -56,6 +61,10 @@ blocks:
           responsibility.
     _template: faqs
 ---
+
+
+
+
 
 
 

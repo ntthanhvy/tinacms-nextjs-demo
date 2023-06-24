@@ -1,36 +1,26 @@
 {
   "header": {
+    "siteName": "",
+    "logo": "/next.svg",
     "style": "centered",
     "nav": [
       {
-        "href": "#features",
-        "label": "Features"
+        "href": "/",
+        "label": "Home"
       },
       {
         "href": "/about",
         "label": "About"
       },
       {
-        "href": "#reviews",
-        "label": "Reviews"
-      },
-      {
-        "href": "#pricing",
-        "label": "Pricing"
-      },
-      {
-        "href": "#faqs",
-        "label": "FAQs"
+        "href": "#features",
+        "label": "Features"
       }
     ],
     "actions": [
       {
         "label": "Log in",
         "type": "link"
-      },
-      {
-        "label": "Download",
-        "type": "button"
       }
     ]
   },
